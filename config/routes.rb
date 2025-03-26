@@ -14,5 +14,7 @@ Rails.application.routes.draw do
    root 'home#index'
    get 'about', to: 'home#about' # Página "About"
    get 'contact', to: 'home#contact' # Página "Contact"
+   resources :messages, only: [:create]
+
 
 end

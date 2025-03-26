@@ -6,5 +6,6 @@ class HomeController < ApplicationController
   end
 
   def contact
+    @message = Message.new  
   end
 end
