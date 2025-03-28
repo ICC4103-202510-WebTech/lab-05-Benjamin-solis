@@ -1146,3 +1146,29 @@ Started GET "/script.js" for ::1 at 2025-03-26 19:50:32 -0300
 ActionController::RoutingError (No route matches [GET] "/script.js"):
   
   [1m[36mMessage Load (157.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" /* loading for pp */ LIMIT 11 /*application='Twitter'*/[0m
+Started GET "/about" for ::1 at 2025-03-27 10:27:08 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+  
+NameError (undefined local variable or method `as' for class ApplicationController):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2025-03-27 10:27:23 -0300
+  
+NameError (undefined local variable or method `as' for class ApplicationController):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2025-03-27 10:27:26 -0300
+  
+NameError (undefined local variable or method `as' for class ApplicationController):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home" for ::1 at 2025-03-27 10:27:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
