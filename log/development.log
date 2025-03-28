@@ -945,230 +945,285 @@ Completed 200 OK in 69ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cache
 
 
 Started GET "/assets/bootstrap" for ::1 at 2025-03-26 16:51:19 -0300
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6671199748738134225) /*application='Twitter'*/[0m
-  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
-  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Twitter'*/[0m
-  [1m[36mActiveRecord::InternalMetadata Create (4.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-03-26 22:19:16.017510', '2025-03-26 22:19:16.017513') RETURNING "key" /*application='Twitter'*/[0m
-Migrating to CreateMessages (20250326221613)
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Twitter'*/[0m
-  [1m[35m (31.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "name" character varying, "email" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Twitter'*/[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250326221613') RETURNING "version" /*application='Twitter'*/[0m
-  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Twitter'*/[0m
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6671199748738134225) /*application='Twitter'*/[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
-  [1m[36mMessage Load (26.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" /* loading for pp */ LIMIT 11 /*application='Twitter'*/[0m
-  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='Twitter'*/[0m
-  [1m[36mMessage Create (4.5ms)[0m  [1m[32mINSERT INTO "messages" ("name", "email", "content", "created_at", "updated_at") VALUES ('Benjamin Solis', 'benjaminsolis@example.com', 'This is a test message.', '2025-03-26 22:22:49.744087', '2025-03-26 22:22:49.744087') RETURNING "id" /*application='Twitter'*/[0m
-  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='Twitter'*/[0m
-  [1m[36mMessage Load (1.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" /* loading for pp */ LIMIT 11 /*application='Twitter'*/[0m
-Started GET "/" for ::1 at 2025-03-26 19:35:47 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
-Processing by HomeController#index as HTML
+Started GET "/contact" for ::1 at 2025-03-26 17:09:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#contact as HTML
   Rendering layout layouts/application.html.erb
-  Rendering home/index.html.erb within layouts/application
-  Rendered home/index.html.erb within layouts/application (Duration: 33.1ms | GC: 16.3ms)
-  Rendered layout layouts/application.html.erb (Duration: 40.3ms | GC: 16.5ms)
-Completed 200 OK in 167ms (Views: 42.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 16.5ms)
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | GC: 16.6ms)
+Completed 200 OK in 148ms (Views: 41.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 16.6ms)
 
 
-Started GET "/assets/bootstrap" for ::1 at 2025-03-26 19:35:47 -0300
-Started GET "/script.js" for ::1 at 2025-03-26 19:35:47 -0300
-  
-ActionController::RoutingError (No route matches [GET] "/script.js"):
-  
-Started GET "/about" for ::1 at 2025-03-26 19:35:50 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-26 17:09:23 -0300
+Started GET "/about" for ::1 at 2025-03-26 17:09:25 -0300
 Processing by HomeController#about as HTML
   Rendering layout layouts/application.html.erb
   Rendering home/about.html.erb within layouts/application
   Rendered home/about.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
-Completed 200 OK in 65ms (Views: 1.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
-
-
-Started GET "/assets/bootstrap" for ::1 at 2025-03-26 19:35:51 -0300
-Started GET "/contact" for ::1 at 2025-03-26 19:35:53 -0300
-Processing by HomeController#contact as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
-Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
-
-
-  
-ActionView::Template::Error (Passed nil to the :model argument, expect an object or false)
-Caused by: ArgumentError (Passed nil to the :model argument, expect an object or false)
-
-Information for: ActionView::Template::Error (Passed nil to the :model argument, expect an object or false):
-    1: <%= form_with model: @message, local: true do |form| %>
-    2:   <div class="mb-3">
-    3:     <%= form.label :name, class: "form-label" %>
-    4:     <%= form.text_field :name, class: "form-control", required: true %>
-  
-app/views/home/contact.html.erb:1
-
-Information for cause: ArgumentError (Passed nil to the :model argument, expect an object or false):
-  
-app/views/home/contact.html.erb:1
-Started GET "/contact" for ::1 at 2025-03-26 19:41:31 -0300
-Processing by HomeController#contact as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
   Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
-Completed 500 Internal Server Error in 119ms (ActiveRecord: 29.8ms (0 queries, 0 cached) | GC: 0.8ms)
+Completed 200 OK in 71ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
-  
-ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>)
-Caused by: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>)
-
-Information for: ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>):
-    1: <%= form_with model: @message, local: true do |form| %>
-    2:   <div class="mb-3">
-    3:     <%= form.label :name, class: "form-label" %>
-    4:     <%= form.text_field :name, class: "form-control", required: true %>
-  
-app/views/home/contact.html.erb:1
-
-Information for cause: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>):
-  
-app/views/home/contact.html.erb:1
-Started GET "/contact" for ::1 at 2025-03-26 19:41:33 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-26 17:09:25 -0300
+Started GET "/contact" for ::1 at 2025-03-26 17:09:26 -0300
 Processing by HomeController#contact as HTML
   Rendering layout layouts/application.html.erb
   Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
-Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 71ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
-  
-ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>)
-Caused by: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>)
-
-Information for: ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>):
-    1: <%= form_with model: @message, local: true do |form| %>
-    2:   <div class="mb-3">
-    3:     <%= form.label :name, class: "form-label" %>
-    4:     <%= form.text_field :name, class: "form-control", required: true %>
-  
-app/views/home/contact.html.erb:1
-
-Information for cause: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x00000001226b32a8>):
-  
-app/views/home/contact.html.erb:1
-Started GET "/contact" for ::1 at 2025-03-26 19:43:07 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
-Processing by HomeController#contact as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
-Completed 500 Internal Server Error in 159ms (ActiveRecord: 18.7ms (0 queries, 0 cached) | GC: 0.0ms)
-
-
-  
-ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>)
-Caused by: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>)
-
-Information for: ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>):
-    1: <%= form_with model: @message, local: true do |form| %>
-    2:   <div class="mb-3">
-    3:     <%= form.label :name, class: "form-label" %>
-    4:     <%= form.text_field :name, class: "form-control", required: true %>
-  
-app/views/home/contact.html.erb:1
-
-Information for cause: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>):
-  
-app/views/home/contact.html.erb:1
-Started GET "/contact" for ::1 at 2025-03-26 19:43:13 -0300
-Processing by HomeController#contact as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
-Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
-
-
-  
-ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>)
-Caused by: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>)
-
-Information for: ActionView::Template::Error (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>):
-    1: <%= form_with model: @message, local: true do |form| %>
-    2:   <div class="mb-3">
-    3:     <%= form.label :name, class: "form-label" %>
-    4:     <%= form.text_field :name, class: "form-control", required: true %>
-  
-app/views/home/contact.html.erb:1
-
-Information for cause: NoMethodError (undefined method `messages_path' for an instance of #<Class:0x0000000120c817e0>):
-  
-app/views/home/contact.html.erb:1
-Started GET "/contact" for ::1 at 2025-03-26 19:47:13 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
-Processing by HomeController#contact as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering home/contact.html.erb within layouts/application
-  Rendered home/contact.html.erb within layouts/application (Duration: 10.8ms | GC: 0.3ms)
-  Rendered layout layouts/application.html.erb (Duration: 40.1ms | GC: 13.5ms)
-Completed 200 OK in 193ms (Views: 42.8ms | ActiveRecord: 18.9ms (0 queries, 0 cached) | GC: 22.4ms)
-
-
-Started GET "/assets/bootstrap" for ::1 at 2025-03-26 19:47:14 -0300
-Started POST "/messages" for ::1 at 2025-03-26 19:50:32 -0300
-Processing by MessagesController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"name"=>"ben", "email"=>"[FILTERED]", "content"=>"si"}, "commit"=>"Submit"}
-  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mBEGIN /*action='create',application='Twitter',controller='messages'*/[0m
-  ↳ app/controllers/messages_controller.rb:4:in `create'
-  [1m[36mMessage Create (26.6ms)[0m  [1m[32mINSERT INTO "messages" ("name", "email", "content", "created_at", "updated_at") VALUES ('ben', 'basolis@sis.cl', 'si', '2025-03-26 22:50:32.140097', '2025-03-26 22:50:32.140097') RETURNING "id" /*action='create',application='Twitter',controller='messages'*/[0m
-  ↳ app/controllers/messages_controller.rb:4:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*action='create',application='Twitter',controller='messages'*/[0m
-  ↳ app/controllers/messages_controller.rb:4:in `create'
-Redirected to http://localhost:3000/
-Completed 302 Found in 96ms (ActiveRecord: 34.7ms (1 query, 0 cached) | GC: 0.0ms)
-
-
-Started GET "/" for ::1 at 2025-03-26 19:50:32 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-26 17:09:26 -0300
+Started GET "/" for ::1 at 2025-03-26 17:09:27 -0300
 Processing by HomeController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering home/index.html.erb within layouts/application
-  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
-  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
-Completed 200 OK in 53ms (Views: 3.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 72ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
-Started GET "/assets/bootstrap" for ::1 at 2025-03-26 19:50:32 -0300
-Started GET "/script.js" for ::1 at 2025-03-26 19:50:32 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-26 17:09:27 -0300
+Started GET "/script.js" for ::1 at 2025-03-26 17:09:27 -0300
   
 ActionController::RoutingError (No route matches [GET] "/script.js"):
   
-  [1m[36mMessage Load (157.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" /* loading for pp */ LIMIT 11 /*application='Twitter'*/[0m
-Started GET "/about" for ::1 at 2025-03-27 10:27:08 -0300
-  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Started GET "/" for ::1 at 2025-03-26 17:11:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 26.4ms | GC: 10.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | GC: 17.1ms)
+Completed 200 OK in 151ms (Views: 43.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.1ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-26 17:11:30 -0300
+Started GET "/script.js" for ::1 at 2025-03-26 17:11:30 -0300
   
-NameError (undefined local variable or method `as' for class ApplicationController):
+ActionController::RoutingError (No route matches [GET] "/script.js"):
   
-app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
-app/controllers/application_controller.rb:1:in `<main>'
-app/controllers/home_controller.rb:1:in `<main>'
-Started GET "/" for ::1 at 2025-03-27 10:27:23 -0300
-  
-NameError (undefined local variable or method `as' for class ApplicationController):
-  
-app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
-app/controllers/application_controller.rb:1:in `<main>'
-app/controllers/home_controller.rb:1:in `<main>'
-Started GET "/" for ::1 at 2025-03-27 10:27:26 -0300
-  
-NameError (undefined local variable or method `as' for class ApplicationController):
-  
-app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
-app/controllers/application_controller.rb:1:in `<main>'
-app/controllers/home_controller.rb:1:in `<main>'
-Started GET "/home" for ::1 at 2025-03-27 10:27:33 -0300
+Started GET "/home" for ::1 at 2025-03-27 10:29:21 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
   
 ActionController::RoutingError (No route matches [GET] "/home"):
   
+Started GET "/contact" for ::1 at 2025-03-27 10:31:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | GC: 19.0ms)
+Completed 200 OK in 151ms (Views: 45.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 19.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:04 -0300
+Started GET "/" for ::1 at 2025-03-27 10:31:06 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:06 -0300
+Started GET "/script.js" for ::1 at 2025-03-27 10:31:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/about" for ::1 at 2025-03-27 10:31:09 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 70ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 4.7ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:09 -0300
+Started GET "/contact" for ::1 at 2025-03-27 10:31:10 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.7ms)
+Completed 200 OK in 71ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:10 -0300
+Started GET "/about" for ::1 at 2025-03-27 10:31:14 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:14 -0300
+Started GET "/" for ::1 at 2025-03-27 10:31:15 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.3ms)
+Completed 200 OK in 68ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:15 -0300
+Started GET "/script.js" for ::1 at 2025-03-27 10:31:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/contact" for ::1 at 2025-03-27 10:31:21 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 65ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:21 -0300
+Started GET "/about" for ::1 at 2025-03-27 10:31:50 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 65ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:50 -0300
+Started GET "/" for ::1 at 2025-03-27 10:31:52 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 75ms (Views: 1.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:31:52 -0300
+Started GET "/script.js" for ::1 at 2025-03-27 10:31:52 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/contact" for ::1 at 2025-03-27 10:32:26 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 61ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:32:26 -0300
+Started GET "/" for ::1 at 2025-03-27 10:34:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 32.5ms | GC: 15.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | GC: 15.9ms)
+Completed 200 OK in 146ms (Views: 41.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 15.9ms)
+
+
+Started GET "/script.js" for ::1 at 2025-03-27 10:34:31 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:34:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/about" for ::1 at 2025-03-27 10:34:41 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 69ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:34:41 -0300
+Started GET "/contact" for ::1 at 2025-03-27 10:34:58 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 5.4ms | GC: 5.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | GC: 5.1ms)
+Completed 200 OK in 75ms (Views: 6.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-27 10:34:58 -0300
+Started GET "/contact" for ::1 at 2025-03-28 12:30:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (17.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | GC: 16.9ms)
+Completed 200 OK in 147ms (Views: 39.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 16.9ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:30:55 -0300
+Started GET "/" for ::1 at 2025-03-28 12:30:59 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:31:00 -0300
+Started GET "/script.js" for ::1 at 2025-03-28 12:31:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/about" for ::1 at 2025-03-28 12:31:01 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 6.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:31:01 -0300
+Started GET "/contact" for ::1 at 2025-03-28 12:31:01 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 65ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:31:02 -0300
+Started GET "/" for ::1 at 2025-03-28 12:32:53 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | GC: 0.0ms)
+Completed 200 OK in 65ms (Views: 10.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/script.js" for ::1 at 2025-03-28 12:32:53 -0300
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:32:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/about" for ::1 at 2025-03-28 12:32:56 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:32:56 -0300
