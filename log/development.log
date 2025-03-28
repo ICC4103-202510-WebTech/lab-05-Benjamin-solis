@@ -1227,3 +1227,38 @@ Completed 200 OK in 63ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cache
 
 
 Started GET "/assets/bootstrap" for ::1 at 2025-03-28 12:32:56 -0300
+Started GET "/" for ::1 at 2025-03-28 13:04:54 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Twitter'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 24.8ms | GC: 7.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | GC: 7.7ms)
+Completed 200 OK in 144ms (Views: 34.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 7.7ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 13:04:55 -0300
+Started GET "/script.js" for ::1 at 2025-03-28 13:04:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/script.js"):
+  
+Started GET "/contact" for ::1 at 2025-03-28 13:04:57 -0300
+Processing by HomeController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/contact.html.erb within layouts/application
+  Rendered home/contact.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 69ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 13:04:57 -0300
+Started GET "/about" for ::1 at 2025-03-28 13:04:58 -0300
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 71ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for ::1 at 2025-03-28 13:04:58 -0300
