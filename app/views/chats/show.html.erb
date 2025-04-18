@@ -1,0 +1,33 @@
+<!-- app/views/chats/show.html.erb -->
+<h1>Chat Details</h1>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Chat #<%= @chat.id %></h5>
+    <p class="card-text">
+      <strong>Sender ID:</strong> <%= @chat.sender_id %><br>
+      <strong>Receiver ID:</strong> <%= @chat.receiver_id %><br>
+      <strong>Created at:</strong> <%= @chat.created_at %><br>
+      <strong>Updated at:</strong> <%= @chat.updated_at %>
+    </p>
+    <%= link_to "Back to Chats", chats_path, class: "btn btn-secondary" %>
+  </div>
+</div>
+
+<h2>Messages in this Chat</h2>
+<% if @messages.any? %>
+  <div class="list-group">
+    <% @messages.each do |message| %>
+      <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">From User ID: <%= message.user_id %></h5>
+          <small><%= message.created_at %></small>
+        </div>
+        <p class="mb-1"><%= message.body %></p>
+        <%= link_to "View Message", message_path(message), class: "btn btn-sm btn-info" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No messages in this chat.</p>
+<% end %>

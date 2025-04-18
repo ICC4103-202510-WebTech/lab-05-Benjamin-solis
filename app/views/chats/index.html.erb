@@ -1,0 +1,30 @@
+<h1>Chats</h1>
+
+<% if @chats.blank? %>
+  <div class="alert alert-info">
+    No hay chats disponibles.
+  </div>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sender ID</th>
+        <th>Receiver ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @chats.each do |chat| %>
+        <tr>
+          <td><%= chat.id %></td>
+          <td><%= chat.sender_id %></td>
+          <td><%= chat.receiver_id %></td>
+          <td>
+            <%= link_to "Show", chat_path(chat), class: "btn btn-sm btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
