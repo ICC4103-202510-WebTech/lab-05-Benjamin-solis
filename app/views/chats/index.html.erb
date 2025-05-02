@@ -1,0 +1,50 @@
+<h1>Chats</h1>
+
+<% if @chats.blank? %>
+  <div class="alert alert-info">
+    No hay chats disponibles.
+  </div>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Remitente</th>
+        <th>Destinatario</th>
+        <th>Mensajes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @chats.each do |chat| %>
+        <tr>
+          <td><%= chat.id %></td>
+          <td>
+            <% if chat.sender %>
+              <%= chat.sender.email %>
+            <% else %>
+              <%= chat.sender_id %>
+            <% end %>
+          </td>
+          <td>
+            <% if chat.receiver %>
+              <%= chat.receiver.email %>
+            <% else %>
+              <%= chat.receiver_id %>
+            <% end %>
+          </td>
+          <td><%= chat.messages.count %></td>
+          <td>
+            <%= link_to "Show", chat_path(chat), class: "btn btn-sm btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<br>
+<%= link_to 'Crear Nuevo Chat', new_chat_path, class: "btn btn-success" %>
+<br><br>
+<%= link_to 'Ver Usuarios', users_path, class: "btn btn-info" %>
+<%= link_to 'Ver Mensajes', messages_path, class: "btn btn-info" %>
