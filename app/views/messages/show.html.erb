@@ -35,5 +35,6 @@
   <div class="card-footer">
     <%= link_to 'Volver a Mensajes', messages_path, class: 'btn btn-secondary' %>
     <%= link_to 'Ver Chat Completo', chat_path(@message.chat), class: 'btn btn-primary' if @message.chat %>
+    <%= link_to 'Editar Mensaje', edit_message_path(@message), class: 'btn btn-warning' %> <!-- Link para editar -->
   </div>
 </div>

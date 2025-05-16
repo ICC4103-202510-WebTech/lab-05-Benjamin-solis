@@ -1,0 +1,28 @@
+<h1>Editar mensaje</h1>
+
+<%= form_with model: @message do |form| %>
+  <% if @message.errors.any? %>
+    <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= form.label :body, "Contenido del mensaje" %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.label :user_id, "Autor" %><br>
+    <%= form.collection_select :user_id, @users, :id, :full_name %>
+  </p>
+
+  <p>
+    <%= form.label :chat_id, "Chat" %><br>
+    <%= form.collection_select :chat_id, @chats, :id, ->(chat) { "Chat ##{chat.id} - #{chat.sender.email} a #{chat.receiver.email}" } %>
+  </p>
+
+  <%= form.submit "Actualizar", class: "btn btn-primary" %>
+<% end %>
