@@ -17,9 +17,9 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    
+
     if @message.save
-      redirect_to @message.chat, notice: 'Mensaje creado exitosamente.'
+      redirect_to @message.chat, notice: "Mensaje creado exitosamente."
     else
       @chats = Chat.all
       @users = User.all
@@ -36,12 +36,12 @@ class MessagesController < ApplicationController
   def update
     @message = Message.find(params[:id])
     if @message.update(message_params)
-      redirect_to @message, notice: 'Mensaje actualizado exitosamente.'
+      redirect_to @message, notice: "Mensaje actualizado exitosamente."
     else
       @chats = Chat.all
       @users = User.all
       render :edit
-end
+    end
 
 def full_name
       "#{first_name} #{last_name}"

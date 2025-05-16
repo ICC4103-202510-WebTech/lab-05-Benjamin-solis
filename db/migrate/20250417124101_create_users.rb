@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.string :first_name, null: false
       t.string :last_name, null: false
 
-      t.timestamps null: false 
+      t.timestamps null: false
     end
   end
 end
