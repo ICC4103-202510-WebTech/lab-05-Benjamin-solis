@@ -27,5 +27,11 @@ module Aplicacionwebbenja
     # Configuración del idioma
     config.i18n.default_locale = :es
     config.i18n.available_locales = [:es, :en]
+
+    # Configuración de Devise
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    
+    # Configuración de Devise para Rails 8
+    config.autoloader = :classic
   end
 end
