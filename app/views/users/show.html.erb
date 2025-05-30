@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <h1>Detalles del Usuario</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+      <p><strong>Email:</strong> <%= @user.email %></p>
+      <p><strong>Creado:</strong> <%= @user.created_at %></p>
+      <p><strong>Actualizado:</strong> <%= @user.updated_at %></p>
+
+      <% if @user == current_user %>
+        <%= link_to 'Editar Usuario', edit_user_path(@user), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Chats del usuario</h5>
+      <% @user.chats.each do |chat| %>
+        <div class="mb-2">
+          <% if chat.sender == @user %>
+            Chat con <%= chat.receiver.first_name %> <%= chat.receiver.last_name %> - 
+          <% else %>
+            Chat con <%= chat.sender.first_name %> <%= chat.sender.last_name %> - 
+          <% end %>
+          <%= link_to 'Ver chat', chat_path(chat), class: 'btn btn-sm btn-info' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Mensajes enviados</h5>
+      <% @user.messages.each do |message| %>
+        <div class="mb-2">
+          En chat #<%= message.chat.id %>: <%= message.body %> - 
+          <%= link_to 'Ver mensaje', message_path(message), class: 'btn btn-sm btn-info' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to 'Volver a Usuarios', users_path, class: 'btn btn-secondary' %>
+</div>

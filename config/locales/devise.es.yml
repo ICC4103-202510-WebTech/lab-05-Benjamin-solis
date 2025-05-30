@@ -1,0 +1,22 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "El correo electrónico no puede estar en blanco"
+              invalid: "El correo electrónico no es válido"
+              taken: "El correo electrónico ya está registrado"
+            password:
+              blank: "La contraseña no puede estar en blanco"
+              too_short: "La contraseña es demasiado corta (mínimo %{count} caracteres)"
+            first_name:
+              blank: "El nombre no puede estar en blanco"
+            last_name:
+              blank: "El apellido no puede estar en blanco"
+    messages:
+      record_invalid: "La validación falló: %{errors}"
+      restrict_dependent_destroy:
+        has_one: "No se puede eliminar el registro porque existe un %{record} dependiente"
+        has_many: "No se puede eliminar el registro porque existen %{record} dependientes" 

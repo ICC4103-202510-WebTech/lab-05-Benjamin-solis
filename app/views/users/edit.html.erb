@@ -1,0 +1,28 @@
+<h1>Editar usuario</h1>
+
+<%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= form.label :first_name, "Nombre" %><br>
+    <%= form.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= form.label :last_name, "Apellido" %><br>
+    <%= form.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :email, "Correo electrónico" %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <%= form.submit "Actualizar" %>
+<% end %>

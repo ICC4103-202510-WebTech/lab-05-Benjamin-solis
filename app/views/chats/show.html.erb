@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+      <h2 class="mb-0">Detalles del Chat</h2>
+    </div>
+    <div class="card-body">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card bg-light">
+            <div class="card-body">
+              <h5 class="card-title text-dark">
+                <i class="bi bi-person-fill me-2"></i>
+                Remitente
+              </h5>
+              <p class="card-text">
+                <i class="bi bi-envelope me-2 text-dark"></i>
+                <%= @chat.sender.first_name %> <%= @chat.sender.last_name %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card bg-light">
+            <div class="card-body">
+              <h5 class="card-title text-dark">
+                <i class="bi bi-person me-2"></i>
+                Destinatario
+              </h5>
+              <p class="card-text">
+                <i class="bi bi-envelope me-2 text-dark"></i>
+                <%= @chat.receiver.first_name %> <%= @chat.receiver.last_name %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">
+            <i class="bi bi-chat-dots me-2"></i>
+            Mensajes
+          </h5>
+        </div>
+        <div class="card-body">
+          <% if @messages.any? %>
+            <div class="messages-container">
+              <% @messages.each do |message| %>
+                <div class="message mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-person-circle me-2 text-dark"></i>
+                    <strong class="text-dark"><%= message.user.first_name %> <%= message.user.last_name %></strong>
+                    <small class="text-muted ms-2">
+                      <%= message.created_at.strftime("%d/%m/%Y %H:%M") %>
+                    </small>
+                  </div>
+                  <div class="message-content p-3 bg-light rounded">
+                    <%= message.body %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="text-center text-muted">
+              <i class="bi bi-chat-square-text me-2"></i>
+              No hay mensajes en este chat
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4 text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="d-grid gap-3">
+        <%= link_to 'Nuevo Mensaje', new_message_path(chat_id: @chat.id), class: "btn btn-dark btn-lg" %>
+        <div class="btn-group">
+          <%= link_to 'Volver a Chats', chats_path, class: "btn btn-outline-dark" %>
+          <%= link_to 'Ver Usuarios', users_path, class: "btn btn-outline-dark" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

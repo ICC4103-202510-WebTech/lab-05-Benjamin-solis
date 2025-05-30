@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Detalles del Mensaje</h1>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>ID:</strong>
+      <%= @message.id %>
+    </p>
+    <p>
+      <strong>Chat:</strong>
+      <% if @message.chat %>
+        <%= link_to "Entre #{@message.chat.sender.email} y #{@message.chat.receiver.email}", chat_path(@message.chat) %>
+      <% else %>
+        ID: <%= @message.chat_id %>
+      <% end %>
+    </p>
+    <p>
+      <strong>Autor:</strong>
+      <% if @message.user %>
+        <%= link_to @message.user.email, user_path(@message.user) %>
+      <% else %>
+        ID: <%= @message.user_id %>
+      <% end %>
+    </p>
+    <p>
+      <strong>Mensaje:</strong>
+      <%= @message.body %>
+    </p>
+    <p>
+      <strong>Enviado:</strong>
+      <%= @message.created_at.strftime("%d/%m/%Y %H:%M") %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Volver a Mensajes', messages_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Ver Chat Completo', chat_path(@message.chat), class: 'btn btn-primary' if @message.chat %>
+    <%= link_to 'Editar Mensaje', edit_message_path(@message), class: 'btn btn-warning' %> <!-- Link para editar -->
+  </div>
+</div>
