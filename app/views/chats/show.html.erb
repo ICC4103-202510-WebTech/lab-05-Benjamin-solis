@@ -53,6 +53,15 @@
                     <small class="text-muted ms-2">
                       <%= message.created_at.strftime("%d/%m/%Y %H:%M") %>
                     </small>
+                    <% if message.user == current_user %>
+                      <div class="ms-auto">
+                        <%= button_to message_path(message), method: :delete, class: "btn btn-sm btn-danger", 
+                            data: { confirm: "¿Estás seguro de que quieres eliminar este mensaje?" }, 
+                            title: "Eliminar mensaje" do %>
+                          <i class="bi bi-trash"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
                   </div>
                   <div class="message-content p-3 bg-light rounded">
                     <%= message.body %>

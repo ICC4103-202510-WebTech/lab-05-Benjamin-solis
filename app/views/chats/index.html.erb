@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="card shadow-sm">
     <div class="card-header bg-dark text-white">
-      <h2 class="mb-0">Chats</h2>
+      <h2 class="mb-0">Mi Bandeja de Entrada</h2>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -9,9 +9,7 @@
           <thead class="table-dark">
             <tr>
               <th class="text-center" style="width: 5%">ID</th>
-              <th style="width: 35%">Remitente</th>
-              <th style="width: 35%">Destinatario</th>
-              <th class="text-center" style="width: 15%">Mensajes</th>
+              <th style="width: 85%">Conversación con</th>
               <th class="text-center" style="width: 10%">Acciones</th>
             </tr>
           </thead>
@@ -22,19 +20,11 @@
                 <td>
                   <div class="d-flex align-items-center">
                     <i class="bi bi-person-fill me-2 text-dark"></i>
-                    <%= chat.sender.first_name %> <%= chat.sender.last_name %>
+                    <%= chat.other_participant(current_user).full_name %>
+                    <span class="badge bg-dark rounded-pill ms-2">
+                      <%= chat.messages.count %> mensajes
+                    </span>
                   </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person me-2 text-dark"></i>
-                    <%= chat.receiver.first_name %> <%= chat.receiver.last_name %>
-                  </div>
-                </td>
-                <td class="text-center">
-                  <span class="badge bg-dark rounded-pill">
-                    <%= chat.messages.count %>
-                  </span>
                 </td>
                 <td class="text-center">
                   <div class="btn-group">

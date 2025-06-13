@@ -41,6 +41,11 @@
                     <%= link_to message_path(message), class: 'btn btn-sm btn-dark', title: 'Ver mensaje' do %>
                       <i class="bi bi-eye"></i>
                     <% end %>
+                    <%= button_to message_path(message), method: :delete, class: "btn btn-sm btn-danger", 
+                        data: { confirm: "¿Estás seguro de que quieres eliminar este mensaje?" }, 
+                        title: "Eliminar mensaje" do %>
+                      <i class="bi bi-trash"></i>
+                    <% end %>
                   </div>
                 </td>
               </tr>

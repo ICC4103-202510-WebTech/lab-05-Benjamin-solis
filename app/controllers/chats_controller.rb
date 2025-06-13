@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @chats = Chat.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+    @chats = Chat.for_user(current_user)
     Rails.logger.debug "Número de chats encontrados: #{@chats.count}"
   end
 

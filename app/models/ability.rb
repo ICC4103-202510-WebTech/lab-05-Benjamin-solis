@@ -19,6 +19,7 @@ class Ability
       can :read, Message, chat: { receiver_id: user.id }
       can :create, Message
       can :update, Message, user_id: user.id
+      can :destroy, Message, user_id: user.id
 
       can :read, User
       can :update, User, id: user.id

@@ -4,26 +4,16 @@ Chat.destroy_all
 User.destroy_all
 
 users = [
-  User.create!(email: "claudio.bravo@ejemplo.com", first_name: "Claudio", last_name: "Bravo"
-  ),
-  User.create!(email: "alexis.sanchez@ejemplo.com", first_name: "Alexis", last_name: "Sánchez"
-  ),
-  User.create!(email: "arturo.vidal@ejemplo.com", first_name: "Arturo", last_name: "Vidal"
-  ),
-  User.create!(email: "gary.medel@ejemplo.com", first_name: "Gary", last_name: "Medel"
-  ),
-  User.create!(email: "eduardo.vargas@ejemplo.com", first_name: "Eduardo", last_name: "Vargas"
-  ),
-  User.create!(email: "charles.aranguiz@ejemplo.com", first_name: "Charles", last_name: "Aránguiz"
-  ),
-  User.create!(email: "jorge.valdivia@ejemplo.com", first_name: "Jorge", last_name: "Valdivia"
-  ),
-  User.create!(email: "mauricio.isla@ejemplo.com", first_name: "Mauricio", last_name: "Isla"
-  ),
-  User.create!(email: "jean.beausejour@ejemplo.com", first_name: "Jean", last_name: "Beausejour"
-  ),
-  User.create!(email: "gonzalo.jara@ejemplo.com", first_name: "Gonzalo", last_name: "Jara"
-  )
+  User.create!(email: "claudio.bravo@ejemplo.com", first_name: "Claudio", last_name: "Bravo", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "alexis.sanchez@ejemplo.com", first_name: "Alexis", last_name: "Sánchez", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "arturo.vidal@ejemplo.com", first_name: "Arturo", last_name: "Vidal", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "gary.medel@ejemplo.com", first_name: "Gary", last_name: "Medel", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "eduardo.vargas@ejemplo.com", first_name: "Eduardo", last_name: "Vargas", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "charles.aranguiz@ejemplo.com", first_name: "Charles", last_name: "Aránguiz", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "jorge.valdivia@ejemplo.com", first_name: "Jorge", last_name: "Valdivia", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "mauricio.isla@ejemplo.com", first_name: "Mauricio", last_name: "Isla", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "jean.beausejour@ejemplo.com", first_name: "Jean", last_name: "Beausejour", password: "123456", password_confirmation: "123456"),
+  User.create!(email: "gonzalo.jara@ejemplo.com", first_name: "Gonzalo", last_name: "Jara", password: "123456", password_confirmation: "123456")
 ]
 
 puts "Usuarios creados:"

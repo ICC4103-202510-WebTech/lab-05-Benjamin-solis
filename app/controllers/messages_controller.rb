@@ -56,6 +56,17 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    chat = @message.chat
+    
+    if @message.destroy
+      redirect_to chat, notice: 'Mensaje eliminado exitosamente.'
+    else
+      redirect_to chat, alert: 'Error al eliminar el mensaje.'
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

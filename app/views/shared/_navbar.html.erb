@@ -11,6 +11,13 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to chats_path, class: "nav-link #{'active' if controller_name == 'chats'}" do %>
+              <i class="bi bi-inbox me-1"></i>Mi Bandeja de Entrada
+            <% end %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link <%= 'active' if controller_name == 'users' %>" href="/users">Users</a>
         </li>
